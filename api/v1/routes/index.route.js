@@ -1,5 +1,5 @@
 const taskRoute = require("./task.route");
 
 module.exports = (app) => {
-    app.use("/", taskRoute);
+    app.use("/api/v1/tasks", taskRoute);
 }
