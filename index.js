@@ -1,20 +1,21 @@
 const express = require("express");
-require("dotenv").config();
 const bodyPaser = require("body-parser");
+const cors = require("cors");
 const database = require("./config/database");
+require("dotenv").config();
 
-const Task = require('./api/v1/model/task.model')
-
-const route = require("./api/v1/routes/index.route");
-
-database.connect();
+const routesApiVer1 = require("./api/v1/routes/index.route");
 
 const app = express();
 const port = process.env.PORT;
 
+app.use(cors());
+
+database.connect();
+
 app.use(bodyPaser.json());
 
-route(app);
+routesApiVer1(app);
 
 app.listen(port, () => {
     console.log(`App listening on port ${port}`);
