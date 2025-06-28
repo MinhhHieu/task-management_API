@@ -183,3 +183,38 @@ module.exports.delete = async (req, res) => {
     });
   }
 }
+
+// [PATCH] /api/v1/tasks/delete-multi
+module.exports.deleteMulti = async (req, res) => {
+    try {
+    const { ids, key} = req.body;
+
+    switch (key) {
+      case "delete":
+        await Task.updateMany(
+          {
+          _id: { $in: ids }
+        },{
+          deleted: true,
+          deletedAt: new Date()
+        });
+        res.json({
+          code: 200,
+          message: "Xóa nhiều task thành công!"
+        });
+        break;
+    
+      default:
+        res.json({
+          code: 400,
+          message: "Không tồn tại!"
+        });
+        break;
+    }
+  } catch (error) {
+    res.json({
+      code: 400,
+      message: "Không tồn tại!"
+    });
+  }
+}

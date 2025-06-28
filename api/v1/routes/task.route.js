@@ -20,4 +20,6 @@ router.patch('/edit/:id', taskEdit.taskEdit,controller.edit);
 
 router.delete('/delete/:id', controller.delete); 
 
+router.delete('/delete-multi', controller.deleteMulti); 
+
 module.exports = router;
