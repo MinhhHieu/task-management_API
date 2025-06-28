@@ -4,6 +4,7 @@ const router = express.Router();
 const controller = require("../controller/task.controller.js");
 
 const taskPost = require("../validates/task.validate");
+const taskEdit = require("../validates/taskEdit.validate");
 
 router.get('/', controller.index);
 
@@ -14,5 +15,7 @@ router.patch('/change-status/:id', controller.changeStatus);
 router.patch('/change-multi', controller.changeMulti);
 
 router.post('/create', taskPost.taskPost, controller.create);
+
+router.patch('/edit/:id', taskEdit.taskEdit,controller.edit);
 
 module.exports = router;
