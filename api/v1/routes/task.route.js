@@ -18,4 +18,6 @@ router.post('/create', taskPost.taskPost, controller.create);
 
 router.patch('/edit/:id', taskEdit.taskEdit,controller.edit);
 
+router.delete('/delete/:id', controller.delete); 
+
 module.exports = router;
