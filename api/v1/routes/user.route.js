@@ -10,4 +10,6 @@ router.post('/register', registerPostValidate.registerPost,controller.register);
 
 router.post('/login', loginPostValidate.loginPost,controller.login);
 
+router.post('/password/forgot', controller.forgotPassword);
+
 module.exports = router;
