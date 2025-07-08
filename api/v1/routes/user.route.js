@@ -20,4 +20,6 @@ router.post('/password/reset', controller.resetPassword);
 
 router.get('/information', authMiddleware.requireAuth, controller.informationUser);
 
+router.get('/list', authMiddleware.requireAuth, controller.listUser);
+
 module.exports = router;
